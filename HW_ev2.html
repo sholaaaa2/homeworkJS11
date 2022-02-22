@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    div{width: 200px; margin: 20px}
+    section{display: flex}
+    main{display: flex;flex-direction: column;justify-content: center;align-items: center;}
+  </style>
+</head>
+<body>
+  <main>
+    <section>
+      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+      <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    </section>
+    <nav>
+      <button id="r">r</button>
+      <button id="g">g</button>
+      <button id="b">b</button>
+    </nav>
+  </main>
+<script type="text/javascript">
+  const nav = document.querySelector("nav");
+  const div = document.querySelectorAll("div");
+  nav.addEventListener("click", changeColor);
+  function changeColor(e) {
+    let btn = e.target;
+    if (btn === document.querySelector("#r")) {
+        div.forEach(item => {item.style.color= "red"})
+    };
+    if (btn === document.querySelector("#g")) {
+        div.forEach(item => {item.style.color= "green"})
+    };
+    if (btn === document.querySelector("#b")) {
+        div.forEach(item => {item.style.color= "blue"})
+    }
+  }
+</script>
+</body>
+</html>

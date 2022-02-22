@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    .sale{
+      width:200px;
+      height:100px;
+      border-radius:50px;
+      background-color:blue;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+    }
+  </style>
+</head>
+<body>
+  <div class="sale"><button>Получить скидку</button></div>
+  <script type="text/javascript">
+    const sale = document.querySelector(".sale");
+
+    sale.addEventListener("mousemove",runSale);
+
+    function runSale(e) {
+      let div = e.target;
+      // Справа
+      if (e.offsetX>div.clientWidth/2) {
+        // Если лево не ноль
+        if (e.clientX-div.clientWidth>0) {
+          div.style.left = `${e.clientX-div.clientWidth-20}px`;
+        }
+        // Если лево ноль
+        else {
+          div.style.left = `${e.clientX}px`;
+        };
+        // Сверху
+        // Снизу
+        moveDownUp(e, div)
+      }
+      // Слева
+      else{
+        // Если не выходит за экран по иксу
+        if (document.documentElement.clientWidth>e.clientX+div.clientWidth) {
+          div.style.left = `${e.clientX+20}px`;
+        }
+        // Если выходит
+        else {
+          div.style.left = `${e.clientX-div.clientWidth}px`;
+        };
+        // Сверху
+        // Снизу
+        moveDownUp(e, div)
+      };
+    };
+
+
+    function moveDownUp(e, div) {
+      // Сверху
+      if (e.offsetY<div.clientHeight/2) {
+        if (document.documentElement.clientHeight>(e.clientY+div.clientHeight)) {
+          div.style.top = `${e.clientY+20}px`
+        }
+        else {
+          div.style.top = `${e.clientY-div.clientHeight}px`
+        }
+      }
+      // Снизу
+      else {
+        if (e.clientY-div.clientHeight>0) {
+          div.style.top = `${e.clientY-div.clientHeight-20}px`
+        }
+        else {
+          div.style.top = `${e.clientY}px`
+        }
+
+      }
+    }
+  </script>
+</body>
+</html>
